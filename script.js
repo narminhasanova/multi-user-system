@@ -45,12 +45,8 @@ form.addEventListener('submit', function (e) {
     }
 });
 
-// string
-// console.log(localStorage.getItem('group'));
-
 // ad ve soyad inputu
 const userData = document.querySelectorAll('.user-data'); //list-array
-// console.log(userData);
 
 // daxil olmaq - focus
 // terk etmek - blur
@@ -60,10 +56,12 @@ for (let i = 0; i < userData.length; i++) {
         if (this.value.length >= 3) {
             this.classList.add('uygun');
             this.classList.remove('uygunsuz');
+            this.nextElementSibling.classList.add('hidden');
         }
         else {
             this.classList.add('uygunsuz');
             this.classList.remove('uygun');
+            this.nextElementSibling.classList.remove('hidden');
         }
     });
 }
@@ -75,10 +73,12 @@ email.addEventListener('blur', function () {
     if (val.includes('@') && val[0] != '@' && val[lastIndex] != '@') {
         this.classList.add('uygun');
         this.classList.remove('uygunsuz');
+        this.nextElementSibling.classList.add('hidden');
     }
     else {
         this.classList.add('uygunsuz');
         this.classList.remove('uygun');
+        this.nextElementSibling.classList.remove('hidden');
     }
 });
 
@@ -87,9 +87,11 @@ password.addEventListener('blur', function () {
     if (this.value.length >= 6 && this.value.length <= 12) {
         this.classList.add('uygun');
         this.classList.remove('uygunsuz');
+        this.nextElementSibling.classList.add('hidden');
     }
     else {
         this.classList.add('uygunsuz');
         this.classList.remove('uygun');
+        this.nextElementSibling.classList.remove('hidden');
     }
 });
